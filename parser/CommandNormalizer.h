@@ -1,0 +1,6 @@
+#ifndef COMMANDNORMALIZER_INCLUDED
+#define COMMANDNORMALIZER_INCLUDED
+
+void normalize_command (char cmd[]);
+
+#endif // COMMANDNORMALIZER_INCLUDED

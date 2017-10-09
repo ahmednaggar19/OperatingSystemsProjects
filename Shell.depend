@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1506794383 source:/home/ahmednaggar19/OS/Shell/main.c
+	<stdio.h>
+	<stdlib.h>
+	"parser/CommandNormalizer.h"
+
+1506792610 /home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.h
+
+1507187770 source:/home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.c
+	"CommandNormalizer.h"
+	<string.h>
+	<stdio.h>
+	"../utils/Constants.h"
+
+1507229648 source:/home/ahmednaggar19/OS/Shell/environment/Environment.c
+	"Environment.h"
+	"Variables.h"
+	"../executers/RegisteredCommands.h"
+	<stdlib.h>
+	<stdio.h>
+
+1507204872 /home/ahmednaggar19/OS/Shell/environment/Environment.h
+
+1507215379 /home/ahmednaggar19/OS/Shell/environment/Variables.h
+
+1507246514 /home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.h
+
+1507229439 source:/home/ahmednaggar19/OS/Shell/environment/Variables.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"Variables.h"
+
+1507191865 source:/home/ahmednaggar19/OS/Shell/executers/BatchExecuter.c
+	"BatchExecuter.h"
+
+1507191652 /home/ahmednaggar19/OS/Shell/executers/BatchExecuter.h
+
+1507243563 source:/home/ahmednaggar19/OS/Shell/executers/CommandExecuter.c
+	"CommandExecuter.h"
+	"RegisteredCommands.h"
+	"../environment/Variables.h"
+	"../parser/ParseResult.h"
+	<string.h>
+	<sys/types.h>
+	<wait.h>
+	<unistd.h>
+
+1507199954 /home/ahmednaggar19/OS/Shell/executers/CommandExecuter.h
+	"../parser/ParseResult.h"
+
+1506887583 /home/ahmednaggar19/OS/Shell/parser/ParseResult.h
+	<stdbool.h>
+
+1507246495 source:/home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.c
+	"RegisteredCommands.h"
+
+1507193336 /home/ahmednaggar19/OS/Shell/utils/Constants.h
+
+1507193370 source:/home/ahmednaggar19/OS/Shell/utils/Constants.c
+	"Constants.h"
+

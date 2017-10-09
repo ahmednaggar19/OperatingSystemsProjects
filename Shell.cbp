@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Shell" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Shell" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Shell" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="environment/Environment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="environment/Environment.h" />
+		<Unit filename="environment/Variables.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="environment/Variables.h" />
+		<Unit filename="executers/BatchExecuter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="executers/BatchExecuter.h" />
+		<Unit filename="executers/CommandExecuter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="executers/CommandExecuter.h" />
+		<Unit filename="executers/InteractiveExecuter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="executers/InteractiveExecuter.h" />
+		<Unit filename="executers/RegisteredCommands.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="executers/RegisteredCommands.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser/CommandNormalizer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parser/CommandNormalizer.h">
+			<Option link="1" />
+		</Unit>
+		<Unit filename="utils/Constants.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utils/Constants.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
