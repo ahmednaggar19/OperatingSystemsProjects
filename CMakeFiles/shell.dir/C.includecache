@@ -13,6 +13,8 @@ Variables.h
 /home/ahmednaggar19/OS/Shell/environment/Variables.h
 ../executers/RegisteredCommands.h
 /home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.h
+../utils/Constants.h
+/home/ahmednaggar19/OS/Shell/utils/Constants.h
 unistd.h
 -
 stdlib.h
@@ -63,9 +65,13 @@ RegisteredCommands.h
 /home/ahmednaggar19/OS/Shell/environment/Variables.h
 ../parser/ParseResult.h
 /home/ahmednaggar19/OS/Shell/parser/ParseResult.h
+../utils/Constants.h
+/home/ahmednaggar19/OS/Shell/utils/Constants.h
 string.h
 -
 stdio.h
+-
+stdlib.h
 -
 sys/types.h
 -
@@ -100,22 +106,6 @@ RegisteredCommands.h
 
 /home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.h
 
-/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.c
-FileReader.h
-/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.h
-../utils/Constants.h
-/home/ahmednaggar19/OS/Shell/utils/Constants.h
-stdlib.h
--
-stdio.h
--
-string.h
--
-
-/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.h
-stdio.h
--
-
 /home/ahmednaggar19/OS/Shell/main.c
 stdio.h
 -
@@ -123,12 +113,6 @@ stdlib.h
 -
 string.h
 -
-parser/Parser.h
-/home/ahmednaggar19/OS/Shell/parser/Parser.h
-parser/ParseResult.h
-/home/ahmednaggar19/OS/Shell/parser/ParseResult.h
-utils/Constants.h
-/home/ahmednaggar19/OS/Shell/utils/Constants.h
 unistd.h
 -
 environment/Environment.h
@@ -139,12 +123,14 @@ executers/InteractiveExecuter.h
 /home/ahmednaggar19/OS/Shell/executers/InteractiveExecuter.h
 
 /home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.c
-CommandNormalizer.h
-/home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.h
 string.h
 -
 stdio.h
 -
+stdbool.h
+-
+CommandNormalizer.h
+/home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.h
 ../utils/Constants.h
 /home/ahmednaggar19/OS/Shell/utils/Constants.h
 
@@ -161,6 +147,10 @@ stdlib.h
 -
 stdio.h
 -
+stdbool.h
+-
+ctype.h
+-
 Parser.h
 /home/ahmednaggar19/OS/Shell/parser/Parser.h
 ParseResult.h
@@ -169,6 +159,8 @@ CommandNormalizer.h
 /home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.h
 ../utils/Constants.h
 /home/ahmednaggar19/OS/Shell/utils/Constants.h
+../environment/Variables.h
+/home/ahmednaggar19/OS/Shell/environment/Variables.h
 
 /home/ahmednaggar19/OS/Shell/parser/Parser.h
 string.h

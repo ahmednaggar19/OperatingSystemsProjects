@@ -1,0 +1,38 @@
+x="
+x="ls -l
+x="ls -l"
+$x
+exit
+x="ls -l"
+$x
+exit
+x=
+exi
+exit
+x="ls -l"
+$x
+exit
+x="ls -l"
+$x
+exit
+x="ls -l"
+$x
+exit
+exit
+export x="-l"
+ls $x
+x="-a"
+x="-a"ls $x
+exit
+x="files"
+y="history"
+cat $x/$y
+pwd
+exit
+x="files"
+y="main.c"
+cat $y
+cd $x
+echo "ahmed el-naggar"
+echo "ahmed  	 nag" $HOME
+exit

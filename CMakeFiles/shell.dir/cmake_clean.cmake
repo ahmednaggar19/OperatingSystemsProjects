@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/shell.dir/executers/CommandExecuter.c.o"
   "CMakeFiles/shell.dir/executers/RegisteredCommands.c.o"
   "CMakeFiles/shell.dir/executers/BatchExecuter.c.o"
-  "CMakeFiles/shell.dir/file_handlers/FileReader.c.o"
   "shell.pdb"
   "shell"
 )

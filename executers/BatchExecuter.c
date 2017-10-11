@@ -14,6 +14,7 @@ void execute_batch (char* batch_name) {
 	if (file_pointer != NULL) {
 		char cmd[CMD_MAX_SIZE];
 		while (fgets(cmd, sizeof cmd, file_pointer) != NULL) {
+			save_command(cmd);
 			ParseResult parse_result = parse_command(cmd);
 			if (!strcmp(parse_result.cmd, EXIT)) {
 				return;

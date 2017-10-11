@@ -1,6 +1,7 @@
 #include "Environment.h"
 #include "Variables.h"
 #include "../executers/RegisteredCommands.h"
+#include "../utils/Constants.h"
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -20,4 +21,6 @@ void setup_environment () {
 	set_variable (HOME, home_value);
 	/// loading registered commands
 	setup_registered_commands();
+	/// loading utils constants
+	setup_constants();
 }

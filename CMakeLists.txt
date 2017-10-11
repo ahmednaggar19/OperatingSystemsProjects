@@ -11,7 +11,6 @@ add_executable(shell
         environment/Variables.c
 	utils/Constants.c
 	executers/InteractiveExecuter.c
-	executers/CommandExecuter.c
+	executers/CommandExecuter.c	
 	executers/RegisteredCommands.c
-	executers/BatchExecuter.c
-	file_handlers/FileReader.c)
+	executers/BatchExecuter.c)

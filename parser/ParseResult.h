@@ -8,6 +8,7 @@ typedef struct ParseResult {
 	char** arguments;
 	unsigned short args_size;
 	bool is_background;
+	bool is_valid;
 }ParseResult;
  
 

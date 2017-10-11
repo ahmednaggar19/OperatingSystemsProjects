@@ -3,7 +3,7 @@
 
 char* CD;
 char* HISTORY;
-char* LOG;
+char* EXPORT;
 char* ECHO;
 char* EXIT;
 

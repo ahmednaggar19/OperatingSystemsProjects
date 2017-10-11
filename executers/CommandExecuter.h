@@ -5,4 +5,5 @@
 
 void execute_command(ParseResult parsed_cmd);
 
+void save_command (char* cmd);
 #endif // COMMANDEXECUTER_INCLUDED

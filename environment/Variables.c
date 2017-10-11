@@ -4,9 +4,10 @@
 
 #include "Variables.h"
 
+
 unsigned int  variables_count = 0;
 char* variables[MAX_VARIABLES_COUNT][2];
-char* NOT_FOUND = "NOT FOUND";
+char* NOT_FOUND = "NOT_FOUND";
 
 const char* lookup_variable( const char* key ) {
 	for (unsigned int i = 0; i < variables_count; i++) {

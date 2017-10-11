@@ -3,14 +3,14 @@
 
 char* CD;
 char* HISTORY;
-char* LOG;
+char* EXPORT;
 char* ECHO;
 char* EXIT;
 
 void setup_registered_commands () {
 	CD = "cd";
 	HISTORY = "history";
-	LOG = "log";
+	EXPORT = "export";
 	ECHO = "echo";
 	EXIT = "exit";
 } 

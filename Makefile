@@ -285,33 +285,6 @@ executers/RegisteredCommands.c.s:
 	$(MAKE) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/executers/RegisteredCommands.c.s
 .PHONY : executers/RegisteredCommands.c.s
 
-file_handlers/FileReader.o: file_handlers/FileReader.c.o
-
-.PHONY : file_handlers/FileReader.o
-
-# target to build an object file
-file_handlers/FileReader.c.o:
-	$(MAKE) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/file_handlers/FileReader.c.o
-.PHONY : file_handlers/FileReader.c.o
-
-file_handlers/FileReader.i: file_handlers/FileReader.c.i
-
-.PHONY : file_handlers/FileReader.i
-
-# target to preprocess a source file
-file_handlers/FileReader.c.i:
-	$(MAKE) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/file_handlers/FileReader.c.i
-.PHONY : file_handlers/FileReader.c.i
-
-file_handlers/FileReader.s: file_handlers/FileReader.c.s
-
-.PHONY : file_handlers/FileReader.s
-
-# target to generate assembly for a file
-file_handlers/FileReader.c.s:
-	$(MAKE) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/file_handlers/FileReader.c.s
-.PHONY : file_handlers/FileReader.c.s
-
 main.o: main.c.o
 
 .PHONY : main.o
@@ -447,9 +420,6 @@ help:
 	@echo "... executers/RegisteredCommands.o"
 	@echo "... executers/RegisteredCommands.i"
 	@echo "... executers/RegisteredCommands.s"
-	@echo "... file_handlers/FileReader.o"
-	@echo "... file_handlers/FileReader.i"
-	@echo "... file_handlers/FileReader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/ahmednaggar19/OS/Shell/executers/CommandExecuter.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/executers/CommandExecuter.c.o"
   "/home/ahmednaggar19/OS/Shell/executers/InteractiveExecuter.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/executers/InteractiveExecuter.c.o"
   "/home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/executers/RegisteredCommands.c.o"
-  "/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/file_handlers/FileReader.c.o"
   "/home/ahmednaggar19/OS/Shell/main.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/main.c.o"
   "/home/ahmednaggar19/OS/Shell/parser/CommandNormalizer.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/parser/CommandNormalizer.c.o"
   "/home/ahmednaggar19/OS/Shell/parser/Parser.c" "/home/ahmednaggar19/OS/Shell/CMakeFiles/shell.dir/parser/Parser.c.o"

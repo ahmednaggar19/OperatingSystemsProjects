@@ -120,12 +120,6 @@
       <Unit filename="/home/ahmednaggar19/OS/Shell/executers/RegisteredCommands.h">
          <Option target="shell"/>
       </Unit>
-      <Unit filename="/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.c">
-         <Option target="shell"/>
-      </Unit>
-      <Unit filename="/home/ahmednaggar19/OS/Shell/file_handlers/FileReader.h">
-         <Option target="shell"/>
-      </Unit>
       <Unit filename="/home/ahmednaggar19/OS/Shell/main.c">
          <Option target="shell"/>
       </Unit>
