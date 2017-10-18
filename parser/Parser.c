@@ -76,9 +76,20 @@ char** get_command_arguments (char cmd[]) {
 
 bool is_background_process (char** args) {
 	if (args_size == 1) {
-		return  (args[args_size - 1][0] == AMPERSEND);
+		if (args[args_size - 1] != NULL && args[args_size - 1][0] == AMPERSEND) {
+			
+			args[args_size - 1] = NULL;
+			args_size--;
+			return true;
+		}
+		return false;	
 	}	
-	return (args[args_size - 2][0] == AMPERSEND);
+	if (args[args_size - 1] != NULL && args[args_size - 1][0] == AMPERSEND) {
+		args[args_size - 1] = NULL;
+		args_size--;
+		return true;
+	}
+	return false;
 }
 
 bool is_valid_var_char (char c) {
@@ -109,6 +120,7 @@ char* substitute_variables (char cmd[]) {
 				extracted_cmd[cmd_index++] = cmd[i];
 			 	extracted_cmd[cmd_index] = NULL_CHAR;
 				extracted_cmd = strcat(extracted_cmd, var_value);
+				cmd_index = strlen(extracted_cmd); 
 				var_accumulator[0] = NULL_CHAR;
 				building_var = false;
 			}
@@ -127,9 +139,9 @@ char* substitute_variables (char cmd[]) {
 
 ParseResult parse_command (char cmd[]) {
 	is_valid = true;
-	normalize_command (cmd);	
+	normalize_command (cmd);
+	ParseResult parse_result;	
 	char* extracted_cmd = substitute_variables(cmd);
-	ParseResult parse_result;
 	parse_result.is_valid = is_valid;
 	if (!is_valid) {
 		return parse_result;

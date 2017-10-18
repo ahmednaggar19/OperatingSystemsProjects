@@ -19,16 +19,16 @@ void execute_cd (ParseResult parsed_cmd) {
 	if (parsed_cmd.arguments[1] != NULL) {
 		if (!strcmp (parsed_cmd.arguments[1], USR_HOME)) {
 			if (chdir (lookup_variable ("HOME")) == -1) {
-				/// TODO : Error Handling
+				printf ("Error : Unable to change directory\n");
 			}
 		} else if (!strcmp (parsed_cmd.arguments[1], UP_DIR)){
 			if (chdir (UP_DIR) == -1) {
-				/// TODO : Error Handling
+				printf ("Error : Unable to change directory\n");
 			}
 		} else if (chdir(parsed_cmd.arguments[1]) == -1) {
-			/// TODO : Error Handling
+			printf ("Error : Unable to change directory\n");
 		} else {
-		
+			printf ("Error : Invalid change directory operation\n");
 		}
 	}
 }
@@ -43,7 +43,7 @@ void execute_history (ParseResult parsed_cmd) {
 		}
 		fclose(file_pointer);
 	} else {
-		///TODO : Error Handler
+		printf ("Error : Unable to access History file\n");
 	}
 }
 
@@ -56,7 +56,7 @@ void extract_var_value (char* expression) {
 		if (expression[i] == EQUAL) {
 			break;
 		} else if (expression[i] == SPACE && !in_string) {
-			///TODO : Error Handling
+			printf ("Error : expressions cannot contain Spaces\n");
 			return;
 		} else if (expression[i] == QUOTE && !in_string) {
 			in_string = true;
@@ -75,7 +75,7 @@ void extract_var_value (char* expression) {
 	var_index = 0;
 	for (++i; i < strlen(expression); i++) {
 		if (expression[i] == SPACE && !in_string) {
-			///TODO : Error Handling
+			printf ("Error : expressions cannot contain Spaces\n");
 			return;
 		} else if (expression[i] == QUOTE && !in_string) {
 			in_string = true;
@@ -132,9 +132,28 @@ char* get_cmd_filepath (char* cmd) {
 	return NULL;
 }
 
+
+void log_process_termination(pid_t pid) {
+	FILE* file_pointer;
+	file_pointer = fopen(LOGS_FILE_NAME, "a");
+	if (file_pointer != NULL) {
+		fprintf (file_pointer,"Child Process was terminated : id = %d\n", pid);
+		fclose(file_pointer);
+	} else {
+		printf ("Error : Unable to access LOGS file\n");
+	}
+}
+
+void sigchld_handler(int signum) {
+	log_process_termination(getpid());
+}
+
+
+
 void execute_general (ParseResult parsed_cmd) {
 	pid_t pid;
-	siginfo_t childstat;
+	//siginfo_t childstat;
+	signal(SIGCHLD, sigchld_handler);
 	pid = fork();
 	if (!pid) {
 		char* code_filepath = get_cmd_filepath(parsed_cmd.cmd);
@@ -142,13 +161,15 @@ void execute_general (ParseResult parsed_cmd) {
 			execv(code_filepath, parsed_cmd.arguments);
 		} else {
 			printf ("INVALID COMMAND\n");	
-		}		
-		///TODO : insert Error Handling
+		}
 		kill (getpid(), SIGQUIT);
 		return;
 	}
 	if (!parsed_cmd.is_background) {
-		waitid (P_PID, pid, &childstat, WEXITED);
+		int status;
+		do {
+			waitpid(pid, &status, WUNTRACED);
+		} while( !WIFEXITED(status) && !WIFSIGNALED(status) );
 	}
 	return;
 }
@@ -188,6 +209,6 @@ void save_command (char* cmd) {
 		fprintf (file_pointer,"%s", cmd);
 		fclose(file_pointer);
 	} else {
-		///TODO : Error Handler
+		printf ("Error : Unable to access History file\n");
 	}
 }

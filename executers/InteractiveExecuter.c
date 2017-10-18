@@ -15,10 +15,12 @@ void execute_interactive () {
 		fgets(cmd, CMD_MAX_SIZE, stdin);
 		save_command(cmd);
 		ParseResult parse_result = parse_command(cmd);
-		if (!strcmp(parse_result.cmd, EXIT)) {
-			return;
+		if (strlen(cmd) == 0) {
+			continue;
 		} else if (!parse_result.is_valid) {
-			printf  ("ERROR");
+			printf  ("ERROR Invalid command");
+		} else if (!strcmp(parse_result.cmd, EXIT)) {
+			return;
 		}
 		execute_command(parse_result);
 	}

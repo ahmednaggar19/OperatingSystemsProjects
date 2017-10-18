@@ -23,7 +23,7 @@ void execute_batch (char* batch_name) {
 		}
 		fclose(file_pointer);
 	} else {
-		///TODO : Error Handler
+		printf ("Error : Unable to access this file\n");
 	}
 	return;
 }

@@ -11,17 +11,15 @@
 
 int main(int argc, char* argv[]) {
 	setup_environment();
-	if (argc <= 1) {
+	if (argc == 1) {
 		execute_interactive();
-	} else {
+	} else if (argc == 2) {
 		execute_batch (argv[1]);
+	} else {
+		printf ("Too many arguments ! \n");
 	}
-	/*char cmd[11] = "/bin/ls -l"; 
-	ParseResult parse = parse_command(cmd);
-	printf ("CMD : %s\n", parse.cmd);
-	for (int i = 0; i < parse.args_size; i++) {
-		printf ("ARG%d : %s\n", i,parse.arguments[i]); 
-	}
-	execv (parse.cmd, parse.arguments);*/
+	/*char* c = "/bin/ls";
+	char* parm[] = {"/bin/ls", "-l", NULL, NULL};
+	execv (c, parm);*/
 	return 0;
 }
