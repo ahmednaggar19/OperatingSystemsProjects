@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/MatrixMultiplication.dir/main.c.o CMakeFiles/MatrixMultiplication.dir/file_processing.c.o CMakeFiles/MatrixMultiplication.dir/matrix_multiplication.c.o  -o MatrixMultiplication -lpthread 
