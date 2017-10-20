@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="MatrixMultiplication" targetName="MatrixMultiplication" />
+      <config projectName="matMultp" targetName="matMultp" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="123cf18c-84a9-49d6-917f-6d4985eaf410" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/CMakeFiles/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
-              <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="28" />
+              <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -35,10 +36,25 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="306">
+              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matrix_multiplication.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/matrix_multiplication.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="72" column="12" lean-forward="false" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#224#555#0" expanded="false" />
+                <element signature="e#557#1179#0" expanded="false" />
+                <element signature="e#3037#4565#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,9 +70,9 @@
         <option value="$PROJECT_DIR$/Matrix.h" />
         <option value="$PROJECT_DIR$/file_processing.c" />
         <option value="$PROJECT_DIR$/matrix_multiplication.h" />
-        <option value="$PROJECT_DIR$/matrix_multiplication.c" />
         <option value="$PROJECT_DIR$/file_processing.h" />
         <option value="$PROJECT_DIR$/Thread_Data.h" />
+        <option value="$PROJECT_DIR$/matrix_multiplication.c" />
         <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
@@ -92,7 +108,7 @@
         <subPane>
           <expand>
             <path>
-              <item name="MatrixMultiplication" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="matMultp" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="MatrixMultiplication" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -116,16 +132,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MatrixMultiplication">
+  <component name="RunManager" selected="Application.matMultp">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="MatrixMultiplication" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MatrixMultiplication" TARGET_NAME="MatrixMultiplication" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MatrixMultiplication" RUN_TARGET_NAME="MatrixMultiplication">
+    <configuration name="matMultp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="matMultp" TARGET_NAME="matMultp" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="matMultp" RUN_TARGET_NAME="matMultp">
       <envs />
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
-      <item index="1" class="java.lang.String" itemvalue="Application.MatrixMultiplication" />
+      <item index="1" class="java.lang.String" itemvalue="Application.matMultp" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -139,12 +155,13 @@
       <option name="presentableId" value="Default" />
       <updated>1508345822466</updated>
       <workItem from="1508345828494" duration="13009000" />
-      <workItem from="1508408258253" duration="6411000" />
+      <workItem from="1508408258253" duration="6901000" />
+      <workItem from="1508512624965" duration="3389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19420000" />
+    <option name="totallyTimeSpent" value="23299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1297" height="780" extended-state="6" />
@@ -156,7 +173,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39071855" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -196,11 +213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1710">
           <caret line="95" column="12" lean-forward="true" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#294#1102#0" expanded="false" />
-            <element signature="e#1104#1323#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -227,29 +239,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/matrix_multiplication.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="113" column="36" lean-forward="true" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#122#257#0" expanded="false" />
-            <element signature="e#259#590#0" expanded="false" />
-            <element signature="e#592#1214#0" expanded="false" />
-            <element signature="e#1827#3074#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file_processing.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-86">
           <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#294#1102#0" expanded="false" />
-            <element signature="e#1104#1323#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -257,14 +250,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -277,10 +262,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matrix_multiplication.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="72" column="12" lean-forward="false" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#224#555#0" expanded="false" />
+            <element signature="e#557#1179#0" expanded="false" />
+            <element signature="e#3037#4565#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        <state relative-caret-position="306">
+          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

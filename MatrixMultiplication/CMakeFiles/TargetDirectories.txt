@@ -1,0 +1,3 @@
+/home/ahmednaggar19/OS/MatrixMultiplication/CMakeFiles/edit_cache.dir
+/home/ahmednaggar19/OS/MatrixMultiplication/CMakeFiles/rebuild_cache.dir
+/home/ahmednaggar19/OS/MatrixMultiplication/CMakeFiles/matMultp.dir

@@ -8,7 +8,6 @@
 void set_error_matrix (Matrix *matrix) {
     matrix->rows_count = -1;
     matrix->cols_count = -1;
-    printf("Error in Dimensions");
 }
 
 void initialze_matrix_values (Matrix *matrix, int rows_length, int cols_length) {
@@ -71,7 +70,7 @@ Matrix multiply_matrices_N_threads (Matrix a, Matrix b) {
                             (void *)&thread_data[i]);
 
         if (rc) {
-            //printf("Error:unable to create thread, %d" ,rc);
+            printf("Error:unable to create thread, %d" ,rc);
             set_error_matrix(&result_matrix);
             return result_matrix;
         }
@@ -80,7 +79,7 @@ Matrix multiply_matrices_N_threads (Matrix a, Matrix b) {
     for(int i = 0; i < a.rows_count; i++ ) {
         rc = pthread_join(threads[i], &status);
         if (rc) {
-            //printf("Error:unable to create thread, %d" ,rc);
+            printf("Error:unable to create thread, %d" ,rc);
             set_error_matrix(&result_matrix);
             return result_matrix;
         }
@@ -114,7 +113,7 @@ Matrix multiply_matrices_NM_threads (Matrix a, Matrix b) {
                                 (void *) &thread_data[i][j]);
 
             if (rc) {
-                //printf("Error:unable to create thread, %d" ,rc);
+                printf("Error:unable to create thread, %d" ,rc);
                 set_error_matrix(&result_matrix);
                 return result_matrix;
             }
@@ -122,10 +121,10 @@ Matrix multiply_matrices_NM_threads (Matrix a, Matrix b) {
     }
     void* status;
     for(int i = 0; i < a.rows_count; i++ ) {
-        for (int j = 0; j < b.rows_count; j++) {
+        for (int j = 0; j < b.cols_count; j++) {
             rc = pthread_join(threads[i][j], &status);
             if (rc) {
-                //printf("Error:unable to create thread, %d" ,rc);
+                printf("Error:unable to join thread, %d" ,rc);
                 set_error_matrix(&result_matrix);
                 return result_matrix;
             }
