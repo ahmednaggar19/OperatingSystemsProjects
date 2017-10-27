@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ahmednaggar19/OS/Repository/TrainStation/caltrain-runner.c
+stdio.h
+-
+stdlib.h
+-
+signal.h
+-
+time.h
+-
+unistd.h
+-
+pthread.h
+-
+caltrain.h
+/home/ahmednaggar19/OS/Repository/TrainStation/caltrain.h
+
+/home/ahmednaggar19/OS/Repository/TrainStation/caltrain.c
+pthread.h
+-
+stdio.h
+-
+caltrain.h
+/home/ahmednaggar19/OS/Repository/TrainStation/caltrain.h
+
+/home/ahmednaggar19/OS/Repository/TrainStation/caltrain.h
+pthread.h
+-
+

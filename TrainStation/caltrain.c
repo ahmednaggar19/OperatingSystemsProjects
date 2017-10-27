@@ -63,7 +63,8 @@ station_on_board(struct station *station)
     pthread_mutex_lock(&station->station_mutex);
     station->boarding_passengers--; // now passenger is boarded and no longer boarding
     station->free_seats--;  // passenger has taken his seat in the train
-    if (station->free_seats == 0 || station->boarding_passengers == 0) { // check if train should leave
+    if (station->free_seats == 0 ||
+            (station->boarding_passengers == 0 && station->waiting_passengers == 0) ) { // check if train should leave
         pthread_cond_signal(&station->all_passengers_boarded);
     }
     pthread_mutex_unlock(&station->station_mutex);

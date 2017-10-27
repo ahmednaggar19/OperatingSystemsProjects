@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/TrainStation.dir/caltrain.c.o CMakeFiles/TrainStation.dir/caltrain-runner.c.o  -o TrainStation -lpthread 
