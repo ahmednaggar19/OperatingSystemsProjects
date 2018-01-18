@@ -8,6 +8,7 @@
 #include "threads/vaddr.h"
 #include "userprog/pagedir.h"
 #include "filesys/filesys.h"
+#include "filesys/file.h"
 #include "devices/input.h"
 #include "lib/kernel/stdio.h"
 
@@ -175,13 +176,13 @@ get_file_length (struct intr_frame *f)
   int fd = *((int *)(&f->esp));
   f->esp += INT_SIZE;
   tid_t tid = thread_current()->tid;
-  int file_length = 0;
+  int file_size = 0;
   if (fd < FDS_MAX && fd >= 3 && file_descriptor_table[fd].tid == tid)
     {
-      file_length = (int) file_length (file_descriptor_table[fd].fp);
+      file_size = (int) file_length (file_descriptor_table[fd].fp);
 
     }
-  f->eax = file_length;
+  f->eax = file_size;
 }
 
 void
@@ -194,6 +195,7 @@ read_file (struct intr_frame *f)
   int read_size = *((int *)(&f->esp));
   f->esp += INT_SIZE;
   int bytes_read = -1;
+  tid_t tid = thread_current() -> tid;
   if (fd == 0)
     {
         bytes_read = (int) input_getc();
@@ -217,6 +219,7 @@ write_file (struct intr_frame *f)
   int write_size = *((int *)(&f->esp));
   f->esp += INT_SIZE;
   int bytes_written = -1;
+  tid_t tid = thread_current() -> tid;
   if (fd == 1)
     {
         if (write_size < BUFF_MAX_SIZE) {
@@ -248,6 +251,7 @@ seek_file (struct intr_frame *f)
   f->esp += INT_SIZE;
   unsigned position = *((unsigned *)(&f->esp));
   f->esp += sizeof (unsigned);
+  tid_t tid = thread_current() -> tid;
   if (fd < FDS_MAX && fd >= 3 && file_descriptor_table[fd].tid == tid)
     {
       file_seek (file_descriptor_table[fd].fp, (off_t) position);
@@ -261,6 +265,7 @@ tell_file (struct intr_frame *f)
   int fd = *((int *)(&f->esp));
   f->esp += INT_SIZE;
   unsigned position = 0;
+  tid_t tid = thread_current() -> tid;
   if (fd < FDS_MAX && fd >= 3 && file_descriptor_table[fd].tid == tid)
     {
       position = (unsigned) file_tell (file_descriptor_table[fd].fp);
