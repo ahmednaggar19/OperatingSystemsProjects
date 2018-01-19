@@ -99,8 +99,15 @@ start_process (void *file_name_)
 int
 process_wait (tid_t child_tid UNUSED)
 {
-	while (true);
-  return -1;
+  struct thread *child = get_corresponding_thread (child_tid);
+	if ((!is_child(child_tid))
+  || (child -> is_parent_waiting))
+    return -1;
+  child->is_parent_waiting = true;
+  cond_wait(&thread_current () -> child_exit_cond,
+   &thread_current () -> child_exit_lock);
+  child->is_parent_waiting = false;
+  return thread_current() -> status;
 }
 
 /* Free the current process's resources. */

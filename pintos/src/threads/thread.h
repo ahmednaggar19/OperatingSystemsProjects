@@ -122,8 +122,9 @@ struct thread
     struct thread *parent;							/* Pointer to process's parent. */
     int child_status;										/* Exit status of child. */
     bool is_parent_waiting;							/* Boolean denoting whether parent is waiting. */
-    struct condition child_exit;				/* Condition variable for the parent to wait for until child signals it. */
-    struct file *elf;                   /* Pointer to the executable loaded file.*/
+    struct condition child_exit_cond;				/* Condition variable for the parent to wait for until child signals it. */
+    struct lock child_exit_lock;
+    struct file *elf;                   			/* Pointer to the executable loaded file.*/
 #endif
     struct schedule_info schedule_info;
     /* Owned by thread.c. */

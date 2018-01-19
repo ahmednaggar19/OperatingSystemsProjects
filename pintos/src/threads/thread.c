@@ -518,7 +518,8 @@ init_thread (struct thread *t, const char *name, int priority)
   /* userprog attributes.*/
   t->is_parent_waiting = false;
   list_init (&t->children);
-  cond_init (&t->child_exit);
+  cond_init (&t->child_exit_cond);
+  lock_init (&t->child_exit_lock);
   t->child_status = 0;
   t->elf = NULL;
 #endif
