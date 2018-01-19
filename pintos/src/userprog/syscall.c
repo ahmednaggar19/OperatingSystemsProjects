@@ -11,6 +11,7 @@
 #include "filesys/file.h"
 #include "devices/input.h"
 #include "lib/kernel/stdio.h"
+#include "lib/user/syscall.h"
 
 #define FDS_MAX 1000
 
@@ -84,9 +85,12 @@ exit_process (struct intr_frame *f)
       if (file_descriptor_table[i].tid == tid)
         file_descriptor_table[i].tid = EMPTY_ENTRY;
     }
-  /// if (thread_current() -> is_parent_waiting)
-  ///     parent.child_status  = status.
-  ///     Parent.child_exit --> signal
+  if (thread_current()->is_parent_waiting)
+      {
+        thread_current () -> parent -> child_status  = status;
+        cond_signal (&thread_current () -> parent -> child_exit_cond,
+          &thread_current () -> parent -> child_exit_lock);
+      }
   file_allow_write (thread_current () -> elf);
   process_exit();
   printf ("%s: exit(%d)\n", thread_current () -> name, status);
@@ -97,7 +101,9 @@ exit_process (struct intr_frame *f)
 void                                                ///////// NEEDS EDITS
 wait_process (struct intr_frame *f)
 {
-
+  pid_t pid = *((pid_t *)(&f->esp));
+  int status = process_wait ((tid_t) pid);
+  f->eax = status;
 }
 
 void
