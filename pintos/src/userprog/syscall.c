@@ -42,23 +42,17 @@ syscall_init (void)
   lock_init(&fd_lock);
 }
 
-void *                                                ///////// NEEDS EDITS
-is_valid_void_address (void *addr)
+void *                                               ///////// NEEDS EDITS
+is_valid_address (void *addr)
 {
-
-}
-
-char *                                                ///////// NEEDS EDITS
-is_valid_string_address (void *addr)
-{
-  char *vaddr = (char *) (addr);
+  int *vaddr = (int *) (addr);
   void *vaddr_value = (void *) *vaddr;
   uint32_t *pd = thread_current() -> pagedir;
-  if (vaddr_value == NULL || is_user_vaddr (vaddr_value)
+  if (vaddr_value == NULL || !is_user_vaddr (vaddr_value)
       || (int) vaddr_value < 0
       || pagedir_get_page (pd, vaddr_value) == NULL)
       return NULL;
-  return (char *) vaddr_value;
+  return vaddr_value;
 }
 
 bool
@@ -91,9 +85,13 @@ exit_process (struct intr_frame *f)
         file_descriptor_table[i].tid = EMPTY_ENTRY;
     }
   /// if (thread_current() -> is_parent_waiting)
-  ///     Thread.child_status  = status.
-  ///
+  ///     parent.child_status  = status.
+  ///     Parent.child_exit --> signal
+  file_allow_write (thread_current () -> elf);
   process_exit();
+  printf ("%s: exit(%d)\n", thread_current () -> name, status);
+  f->eax = status;
+  thread_exit();
 }
 
 void                                                ///////// NEEDS EDITS
@@ -106,7 +104,7 @@ void
 create_file (struct intr_frame *f)
 {
   bool creation_status = false;
-  char *file_name = (is_valid_string_address(f->esp));
+  char *file_name = ((char *) is_valid_address(f->esp));
   if (file_name != NULL)
     {
       f->esp += INT_SIZE;
@@ -129,7 +127,7 @@ void
 remove_file (struct intr_frame *f)
 {
   bool removal_status = false;
-  char * file_name = (is_valid_string_address(f->esp));
+  char * file_name = ((char *) is_valid_address(f->esp));
   if (file_name != NULL)
     {
       f->esp += INT_SIZE;
@@ -146,7 +144,7 @@ remove_file (struct intr_frame *f)
 void
 open_file (struct intr_frame *f)
 {
-    char* file_name = is_valid_string_address(f->esp);
+    char* file_name = (char *) is_valid_address(f->esp);
     f->esp += INT_SIZE;
     struct file *fp = filesys_open (file_name);
     int fd = -1;
@@ -190,7 +188,7 @@ read_file (struct intr_frame *f)
 {
   int fd = *((int *)(&f->esp));
   f->esp += INT_SIZE;
-  void *buffer = (is_valid_string_address(f->esp));
+  void *buffer = (is_valid_address(f->esp));
   f->esp += INT_SIZE;
   int read_size = *((int *)(&f->esp));
   f->esp += INT_SIZE;
@@ -214,7 +212,7 @@ write_file (struct intr_frame *f)
 {
   int fd = *((int *)(&f->esp));
   f->esp += INT_SIZE;
-  void *buffer = (is_valid_string_address(f->esp));
+  void *buffer = (is_valid_address(f->esp));
   f->esp += INT_SIZE;
   int write_size = *((int *)(&f->esp));
   f->esp += INT_SIZE;

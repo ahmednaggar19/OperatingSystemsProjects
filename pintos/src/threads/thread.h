@@ -123,6 +123,7 @@ struct thread
     int child_status;										/* Exit status of child. */
     bool is_parent_waiting;							/* Boolean denoting whether parent is waiting. */
     struct condition child_exit;				/* Condition variable for the parent to wait for until child signals it. */
+    struct file *elf;                   /* Pointer to the executable loaded file.*/
 #endif
     struct schedule_info schedule_info;
     /* Owned by thread.c. */
@@ -194,5 +195,6 @@ int existing_threads (void);
 
 // function for getting the corresponding thread
 struct thread *get_corresponding_thread (tid_t id);
+bool is_child (tid_t child_tid);
 
 #endif /* threads/thread.h */

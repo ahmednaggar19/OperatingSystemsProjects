@@ -514,11 +514,14 @@ init_thread (struct thread *t, const char *name, int priority)
   /*Initializing nice value to 0.*/
   t->nice = 0;
 
+#ifdef USERPROG
   /* userprog attributes.*/
   t->is_parent_waiting = false;
   list_init (&t->children);
   cond_init (&t->child_exit);
   t->child_status = 0;
+  t->elf = NULL;
+#endif
 
   t->magic = THREAD_MAGIC;
   list_push_back (&all_list, &t->allelem);
@@ -724,7 +727,8 @@ void update_priority (void)
 }
 
 // EDITED
-struct thread *get_corresponding_thread (tid_t id)
+struct thread *
+get_corresponding_thread (tid_t id)
 {
   struct list_elem *e;
   for (e = list_begin (&all_list); e != list_end (&all_list);
@@ -734,6 +738,21 @@ struct thread *get_corresponding_thread (tid_t id)
       if (t->tid == id)
         return t;
     }
+}
+
+/* Check whether the given child_tid corresponds to a direct child of the caller. */
+bool
+is_child (tid_t child_tid)
+{
+  struct list_elem *e;
+  for (e = list_begin (&thread_current() -> children); e != list_end (&thread_current() -> children);
+       e = list_next (e))
+    {
+      struct thread *t = list_entry (e, struct thread, child_elem);
+      if (t->tid == child_tid)
+        return true;
+    }
+  return false;
 }
 
 /*Comparator that returns ture if thread A has higher priority than thread B.*/
